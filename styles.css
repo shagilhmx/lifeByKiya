@@ -1206,9 +1206,31 @@ input[type=number] {
     display: none;
     text-align: center;
 }
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+    width: 100%;
+    text-align: left;
+    color: #979797;
+    font-size: 12px;
+}
 @media screen and (max-width: 1024px) {
     .navbar{
         display: none;
+    }
+    .footer {
+        flex-direction: column;
+        gap: 6px;
+        padding-left: 20px;
+        font-size: 10px;
+    }
+
+    .footer p {
+        margin: 0px;
     }
     .mobile-navbar{
         display: block;

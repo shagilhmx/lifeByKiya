@@ -45,7 +45,7 @@ function apiCall(name, phone, email, check) {
   };
 
   axios
-    .post("https://api-dcrm.fincity.com/open/opportunity", body)
+    .post("http://api-dcrm-dev.fincity.in/open/opportunity", body)
     .then((res) => {
       gtag_report_conversion();
       if (isOtp) {
@@ -105,7 +105,7 @@ function sendOtp(check) {
   verifyOtp.style.display = "block";
   axios
     .post(
-      `https://api-dcrm.fincity.com/open/opportunity/send-otp?token=${token}`
+      `http://api-dcrm-dev.fincity.in/open/opportunity/send-otp?token=${token}`
     )
     .then((res) => {})
     .catch((err) => {});
@@ -128,7 +128,7 @@ function verifyOtp(check) {
     otpInput1.value + otpInput2.value + otpInput3.value + otpInput4.value;
 
   axios
-    .post(`https://api-dcrm.fincity.com/open/opportunity/verify`, {
+    .post(`http://api-dcrm-dev.fincity.in/open/opportunity/verify`, {
       token: token,
       otp: otp,
     })
@@ -148,7 +148,7 @@ function verifyOtp(check) {
           : ".location-container4"
       ).style.display = "block";
       setTimeout(() => {
-        window.location.href = "https://dcrm.fincity.com/?&user=consumer";
+        window.location.href = "http://dcrm-dev.fincity.in/?&user=consumer";
       }, 5000);
     })
     .catch((err) => {});
@@ -168,7 +168,7 @@ function detectLocation(e) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         axios
-          .post(`https://api-dcrm.fincity.com/open/opportunity/verify`, {
+          .post(`http://api-dcrm-dev.fincity.in/open/opportunity/verify`, {
             token: token,
             location: {
               lat: latitude,
